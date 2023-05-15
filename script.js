@@ -13,13 +13,23 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav_list_group');
 const overlay = document.querySelector('.overlay');
 const navItems = document.querySelectorAll('.nav_item');
+const navBtns = document.querySelector('.nav_list_group-btns');
 
 // hamburger
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
     overlay.classList.toggle("active");
+    // navBtns.classList.toggle("active");
 });
+
+const removeHamburger = function() {
+    overlay.classList.remove("active");
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}
+
+overlay.addEventListener('click', removeHamburger);
 
 // sticky nav
 const navHeight = nav.getBoundingClientRect().height;

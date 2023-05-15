@@ -51,24 +51,19 @@ header {
 .nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
     z-index: 100;
     height: 5rem;
+}
+
+.logo {
+    margin-right: auto;
 }
 
 /* nav sticky */
 .nav.sticky {
     position: sticky;
     background-color: rgba(255, 255, 255, 0.95);
-}
-
-.overlay {
-    inset: 0;
-    background-color: var(--black);
-    position: absolute;
-    opacity: 0.5;
-    display: none;
 }
 
 .nav_list_group {
@@ -85,6 +80,13 @@ header {
 .nav_item {
     color: var(--green);
     font-size: 1rem;
+}
+
+.nav_list_group-btns {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: 5rem;
 }
 
 .nav_link-btns {
@@ -110,7 +112,6 @@ header {
     width: 35px;
     height: 3px;
     margin: 5px auto;
-    background-color: var(--very-dark-blue);
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
@@ -343,6 +344,7 @@ header {
 
     .overlay.active {
         display: block;
+        height: 100vh;
     }
 
     .nav {
@@ -354,9 +356,10 @@ header {
         font-weight: 500;
         font-size: 1rem;
         flex-direction: column;
-        inset: 0 0 0 30%;
-        padding: min(30vh, 8em) 1.5em;
-        background-color: var(--off-white);
+        text-align: right;
+        inset: 0;
+        padding: 7rem 2rem 0 0;
+        gap: 2rem;
         height: 100%;
         margin: 0;
         transition: 0.3s;
@@ -364,6 +367,11 @@ header {
     }
 
     .nav_list_group.active{
+        transform: translateX(0%);
+        background-color: var(--white);
+    }
+
+    .nav_list_group-btns.active {
         transform: translateX(0%);
     }
 
@@ -375,6 +383,7 @@ header {
 
     .bar {
         display: block;
+        background-color: var(--green);
     }
 
     .hamburger.active .bar:nth-child(2) {
@@ -392,10 +401,18 @@ header {
     /* hero section */
     .hero_section {
         flex-direction: column;
+        margin-top: 3rem;
+    }
+
+    .btn_containers {
+        justify-content: space-around;
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+        gap: 1rem;
     }
 
     .hero_title {
-        font-size: 2.8rem;
+        font-size: 3rem;
         text-align: center;
         width: 100%;
     }
@@ -403,6 +420,7 @@ header {
     .hero_subtitle {
         font-size: .9rem;
         text-align: center;
+        width: 100%;
     }
 
     .hero_img {
