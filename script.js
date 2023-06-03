@@ -98,6 +98,7 @@ tabsContainer.addEventListener('click', function(e) {
 // slider
 const slider = function() {
     const slides = document.querySelectorAll('.slide');
+    const slidesContainer = document.querySelector('.slider_container');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
 
@@ -168,11 +169,29 @@ const slider = function() {
 
 
     // arrow key slide
-    document.addEventListener('keydown', function(e) {
+    slidesContainer.addEventListener('keydown', function(e) {
         console.log('eee')
         if(e.key === 'ArrowLeft') prevSlide();
         if(e.key === 'ArrowRight') nextSlide();
     });
+
+    // swipe slide mobile
+    let touchstartX = 0;
+    let touchendX = 0;
+        
+    function checkDirection() {
+        if (touchendX < touchstartX) nextSlide();
+        if (touchendX > touchstartX) prevSlide();
+    }
+
+    slidesContainer.addEventListener('touchstart', e => {
+        touchstartX = e.changedTouches[0].screenX
+    })
+
+    slidesContainer.addEventListener('touchend', e => {
+        touchendX = e.changedTouches[0].screenX
+        checkDirection()
+    })
 
 
     dotContainer.addEventListener('click', function(e) {
@@ -187,21 +206,3 @@ const slider = function() {
 slider();
 
 
-const sliderCont = document.querySelector('.slider_container');
-
-let touchstartX = 0;
-let touchendX = 0;
-    
-function checkDirection() {
-  if (touchendX < touchstartX) alert('swiped left!')
-  if (touchendX > touchstartX) alert('swiped right!')
-}
-
-sliderCont.addEventListener('touchstart', e => {
-  touchstartX = e.changedTouches[0].screenX
-})
-
-sliderCont.addEventListener('touchend', e => {
-  touchendX = e.changedTouches[0].screenX
-  checkDirection()
-})
