@@ -7,4 +7,5 @@ Project designed by me for [Atlassian Community Summit Hackathon (2022)](https:/
 
 - Javascript
 - Vanilla CSS
+- Intersection Observer API
 
